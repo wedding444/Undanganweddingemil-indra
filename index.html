@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Wedding Andi & Rina</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #ffffff;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* =========================================
+       CONTAINER FULL HP
+       ========================================= */
+
+    .undangan {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      position: relative;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+
+    /* =========================================
+       CANVA / DESAIN
+       ========================================= */
+
+    .canva-wrapper {
+      position: relative;
+
+      width: 100%;
+
+      /* FULL TINGGI LAYAR HP */
+      height: 100vh;
+
+      min-height: 100vh;
+
+      overflow: hidden;
+    }
+
+    .canva-wrapper iframe {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+      display: block;
+    }
+
+
+    /* =========================================
+       YTH + NAMA TAMU
+       ========================================= */
+
+    .guest {
+
+      /*
+      ==========================================
+      UBAH POSISI YTH + NAMA DI SINI
+      ==========================================
+
+      Contoh:
+
+      30vh  = lebih ke atas
+      40vh  = agak ke atas
+      50vh  = tengah
+      60vh  = agak ke bawah
+      70vh  = lebih ke bawah
+
+      CUKUP UBAH ANGKA INI.
+      YTH DAN NAMA AKAN BERGERAK BERSAMA.
+      */
+
+      top: 78vh;
+
+
+      position: absolute;
+
+      left: 0;
+
+      width: 100%;
+
+      text-align: center;
+
+      z-index: 20;
+
+      pointer-events: none;
+
+      background: transparent;
+    }
+
+
+    /* =========================================
+       YTH.
+       ========================================= */
+
+    .guest p {
+
+      margin: 0 0 5px 0;
+
+      padding: 0;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 14px;
+
+      font-weight: 400;
+
+      line-height: 1.2;
+
+      color: #000000;
+
+      background: transparent;
+    }
+
+
+    /* =========================================
+       NAMA TAMU
+       ========================================= */
+
+    #namaTamu {
+
+      margin: 0 auto;
+
+      padding: 0;
+
+      width: 90%;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 24px;
+
+      font-weight: 600;
+
+      line-height: 1.2;
+
+      color: #000000;
+
+      text-align: center;
+
+      background: transparent;
+
+      border: none;
+
+      box-shadow: none;
+
+      outline: none;
+
+      overflow-wrap: break-word;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================================
+       HP KECIL
+       ========================================= */
+
+    @media (max-width: 380px) {
+
+      #namaTamu {
+        font-size: 21px;
+      }
+
+      .guest p {
+        font-size: 13px;
+      }
+
+    }
+
+
+    /* =========================================
+       HP BESAR
+       ========================================= */
+
+    @media (min-width: 381px) {
+
+      #namaTamu {
+        font-size: 24px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="undangan">
+
+
+    <!-- =======================================
+         DESAIN CANVA
+         ======================================= -->
+
+    <div class="canva-wrapper">
+
+      <iframe
+        src="https://www.canva.com/design/DAHUGbv1FU4/LKnSYJnJq3cST0srJCJXBQ/view?embed"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+
+    <!-- =======================================
+         YTH + NAMA TAMU
+         ======================================= -->
+
+    <div class="guest">
+
+      <p>Yth.</p>
+
+      <h2 id="namaTamu">
+        Tamu Undangan
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       SCRIPT NAMA TAMU DARI LINK
+       ========================================= -->
+
+  <script>
+
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const namaTamu = params.get("to");
+
+    if (namaTamu && namaTamu.trim() !== "") {
+
+      document.getElementById("namaTamu").textContent =
+        namaTamu;
+
+    }
+
+  </script>
+
+</body>
+</html>
